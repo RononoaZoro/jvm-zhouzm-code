@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * VM Args： -XX:PermSize=10M -XX:MaxPermSize=10M
- *
+ * 要使用jdk 7
  * @author zzm
  */
 public class JavaMethodAreaOOM {

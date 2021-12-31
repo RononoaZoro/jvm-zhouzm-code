@@ -2,7 +2,7 @@ package org.fenixsoft.jvm.chapter2;
 
 /**
  * VM Args：-Xss128k
- *
+ * -Xss中栈空间越小，栈深度越小
  * @author zzm
  */
 public class JavaVMStackSOF_2 {

@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 /**
  * VM Args：-Xmx20M -XX:MaxDirectMemorySize=10M
- *
+ * 默认与Java堆最大值（由-Xmx指定）一致
  * @author zzm
  */
 public class DirectMemoryOOM {
