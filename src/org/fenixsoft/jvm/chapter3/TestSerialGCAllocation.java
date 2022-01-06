@@ -2,6 +2,7 @@ package org.fenixsoft.jvm.chapter3;
 
 /**
  * VM参数：+XX:UseSerialGC
+ *
  * @author zzm
  */
 public class TestSerialGCAllocation {
@@ -10,6 +11,7 @@ public class TestSerialGCAllocation {
 
     /**
      * VM参数：-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+     * ，可以使用-verbose：class以及-XX：+TraceClass-Loading、-XX:+TraceClassUnLoading查看类加载和卸载信息
      */
     public static void testAllocation() {
         byte[] allocation1, allocation2, allocation3, allocation4;
@@ -21,7 +23,7 @@ public class TestSerialGCAllocation {
 
     /**
      * VM参数：-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
-     * -XX:PretenureSizeThreshold=3145728
+     * -XX:PretenureSizeThreshold=3145728 (3M) -XX:+UseParNewGC
      */
     public static void testPretenureSizeThreshold() {
         byte[] allocation;
@@ -56,7 +58,8 @@ public class TestSerialGCAllocation {
     }
 
     /**
-     * VM参数：-Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:-HandlePromotionFailure
+     * VM参数：-Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+     * -XX:-HandlePromotionFailure(需要jdk1.6)
      */
     public static void testHandlePromotion() {
         byte[] allocation1, allocation2, allocation3, allocation4, allocation5, allocation6, allocation7;
@@ -73,6 +76,13 @@ public class TestSerialGCAllocation {
         allocation7 = new byte[2 * _1MB];
     }
 
+    public static void main(String[] args) {
+//        testAllocation();
+//        testPretenureSizeThreshold();
+//        testTenuringThreshold();
+//        testTenuringThreshold2();
+        testHandlePromotion();
+    }
 
 
 }
