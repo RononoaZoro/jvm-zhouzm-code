@@ -19,11 +19,17 @@ public class JConsoleTestCase {
             Thread.sleep(50);
             list.add(new OOMObject());
         }
-        System.gc();
+//        System.gc();
+//        System.out.println();
     }
 
     public static void main(String[] args) throws Exception {
         fillHeap(1000);
+        System.gc();
+        for (int i = 0; i < 10000; i++) {
+            // 稍作延时，令监视曲线的变化更加明显
+            Thread.sleep(50);
+        }
     }
 
 }
