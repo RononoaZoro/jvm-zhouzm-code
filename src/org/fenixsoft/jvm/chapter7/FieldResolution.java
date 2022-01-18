@@ -22,7 +22,7 @@ public class FieldResolution {
     }
 
     static class Sub extends Parent implements Interface2 {
-        public static int A = 4;
+        public static int A = 4;//注释之后编译就不能通过，A是有歧义的，父类和接口都有
     }
 
     public static void main(String[] args) {

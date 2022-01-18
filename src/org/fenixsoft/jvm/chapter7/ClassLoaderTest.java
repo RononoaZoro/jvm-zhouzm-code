@@ -4,6 +4,8 @@ package org.fenixsoft.jvm.chapter7;
  * @author zzm
  */
 
+import sun.security.util.SecurityConstants;
+
 import java.io.IOException;
 import java.io.InputStream;
 
