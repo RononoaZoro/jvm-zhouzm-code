@@ -18,9 +18,12 @@ public class JavaclassExecuter {
      * @return 执行结果
      */
     public static String execute(byte[] classByte) {
+        //start 这一段是把标准输出流 System 替换成自己实现的 HackSystem，实际线上项目一般用的是log打印日志，不需要这个
+        //例子：https://blog.csdn.net/gooaaee/article/details/81029461
         HackSystem.clearBuffer();
         ClassModifier cm = new ClassModifier(classByte);
         byte[] modiBytes = cm.modifyUTF8Constant("java/lang/System", "org/fenixsoft/classloading/execute/HackSystem");
+        //end
         HotSwapClassLoader loader = new HotSwapClassLoader();
         Class clazz = loader.loadByte(modiBytes);
         try {
