@@ -3,17 +3,21 @@ package org.fenixsoft.jvm.chapter10;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.*;
-import javax.lang.model.util.ElementScanner6;
+import javax.lang.model.util.ElementScanner8;
 import java.util.EnumSet;
 
 import static javax.lang.model.element.ElementKind.*;
-import static javax.lang.model.element.ElementKind.INTERFACE;
 import static javax.lang.model.element.Modifier.*;
 import static javax.tools.Diagnostic.Kind.WARNING;
 
 /**
+ * 在src目录打开终端
+ * javac -encoding UTF-8 org/fenixsoft/jvm/chapter10/NameChecker.java
+ * javac -encoding UTF-8 org/fenixsoft/jvm/chapter10/NameCheckProcessor.java
+ * javac -encoding UTF-8 -processor org.fenixsoft.jvm.chapter10.NameCheckProcessor org/fenixsoft/jvm/chapter10/BADLY_NAMED_CODE.java
  * 程序名称规范的编译器插件：<br>
  * 如果程序命名不合规范，将会输出一个编译器的WARNING信息
+ * javac -encoding UTF-8 NameChecker.java
  */
 public class NameChecker {
     private final Messager messager;
@@ -42,10 +46,10 @@ public class NameChecker {
     }
 
     /**
-     * 名称检查器实现类，继承了JDK 6中新提供的ElementScanner6<br>
+     * 名称检查器实现类，继承了JDK 8中新提供的ElementScanner8<br>
      * 将会以Visitor模式访问抽象语法树中的元素
      */
-    private class NameCheckScanner extends ElementScanner6<Void, Void> {
+    private class NameCheckScanner extends ElementScanner8<Void, Void> {
 
         /**
          * 此方法用于检查Java类
