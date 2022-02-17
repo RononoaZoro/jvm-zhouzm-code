@@ -34,5 +34,6 @@ public class VolatileTest {
             Thread.yield();
 
         System.out.println(race);
+
     }
 }
