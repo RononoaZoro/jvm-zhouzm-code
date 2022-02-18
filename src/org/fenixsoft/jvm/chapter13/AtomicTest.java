@@ -31,6 +31,7 @@ public class AtomicTest {
             threads[i].start();
         }
 
+        //idea 判断>2（idea本身会创建一个线程）
         while (Thread.activeCount() > 1)
             Thread.yield();
 
